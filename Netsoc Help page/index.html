@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Netsoc Server intorduction</title>
+    <style>
+    .code {
+        background: #eff0f1;
+        padding: 4px 10px;
+        width: max-content;
+        font-family: Consolas;
+    }
+    img {
+        padding: 1px;
+        background: lightgray;
+        max-width: 600px;
+        max-height: 600px;
+        box-shadow: 0px 5px 8px 0px gray;
+        margin: auto;
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <div id="container" style="max-width: 960px; margin: auto;">
+    <h1 style="text-align: center;">
+    Welcome to the new Netsoc server!
+    </h1>
+    
+    <ul>
+        <li><a href="#access">Accessing the server</a></li>
+        <li><a href="#webpage">Setting up your webpage</a></li>
+        <li><a href="#upload">Uploading Files</a></li>
+    </ul>
+    
+    
+    <h2><a name="access">
+    Accessing the server
+    </a></h2>
+    *(setup/access account info)
+    
+    <p>
+
+    To administer your account on the server, you need to log in using SSH (Secure shell)<br/>
+
+    An SSH client should be available by default on Mac and Linux. <br/>
+    It might already be available on Windows, but if not, we recommend using the Putty SSH client.
+    </p>
+    
+    <p>
+    To connect to the server, open a terminal/console and type:<br/>
+    <div class="code">
+    >> ssh username@netsoc.ucd.ie
+    </div>
+    <br/>
+    You should now be prompted for your password.
+
+    <div class="code">
+    >> username@netsoc.ucd.ie's password:
+    </div>
+    <br/>
+    (Don't worry if it's not displaying anything as you type in your password. That's how it's supposed to work)
+    <br/>
+    <br/>
+    
+    If you're using Putty, just open the program and fill in the blanks>
+    </p>
+    <img src="PuttyGuide.png"/>
+
+
+    <h2><a  name="webpage">
+    Setting up your webpage
+    </a></h2>
+
+    <p>
+    To set up a basic webpage, simply add a file called index.html to the www/ folder in your home directory on the server. The contents of that index.html file will then be displayed with the address netsoc.ucd.ie/~username 
+    </p>
+    <p>
+    To create a nice website, you can use whichever framework you want! Or you could open up your favourite text editor and W3schools’s Into to HTML and CSS, and start coding away! 
+    </p>
+    <p>
+    If there are features you want on your website that we currently don’t support, please tell us and we’ll do our best to accommodate you. 
+    </p>
+
+
+
+    <h2><a  name="upload">
+    Uploading files
+    </a></h2>
+    <p>
+    Here are a few simple ways to get your files from your computer to your server. In these examples, I'll send a file called index.html to the folder /www/ in my home directory on the server.
+
+    </p>
+    <p>
+    Most SSH clients support SFTP(SSH File Transfer Protocol), which allows you to use the terminal/console to send files to the server. 
+    </p>
+
+
+
+    <p>
+    If you just want to send a single file to the server, you can use:
+    <div class="code">
+    >> scp index.html username@netsoc.ucd.ie:www/
+    </div>
+    </p>
+
+
+    <p>
+    If you want to transfer multiple files, you could use SFTP in the terminal, but we recommend using a client like FileZilla in this case. (Remember to avoid installing Bing search and Opera when downloading FileZilla) <br/> 
+    Here's a simple introduction to FileZilla.
+    </p>
+    
+    
+    <p>
+    Connect to the netsoc.ucd.ie server with your username and password. Remember to set the port to 22 (to use SFTP).
+    </p>
+    <img src="FileZillaLogin.png"/>
+    <p> 
+    The window on the right displays your current folder on the server(top) and the contents of that folder(bottom). 
+    </p>
+    <img src="FileZillaServerFiles.png"/>
+    <p>
+    You can navigate using the top window to find the location where you want to upload a file then either find your file in the left window or in a separate file explorer and drag it to somewhere in the right window. Your file should now be uploaded to the server in the location you dragged it to.
+    </p>
+    <img src="FileZillaDragNDrop.png"/>
+
+
+</body>
+</html>
