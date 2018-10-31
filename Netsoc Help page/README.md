@@ -1,4 +1,4 @@
-#Help Page for netsoc users
+# Help Page for netsoc users
 
 Currently concerned with how get access to an account and basic account administration stuff
 
