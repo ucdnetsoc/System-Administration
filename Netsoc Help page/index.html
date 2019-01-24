@@ -1,165 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Welcome - Netsoc</title>
-    <link rel="icon" href="NetsocLogoCropped.png"/>
-    <style>
-    .code {
-        background: #eff0f1;
-        padding: 4px 10px;
-        width: max-content;
-        font-family: Consolas;
-    }
-    img {
-        padding: 1px;
-        background: lightgray;
-        max-width: 600px;
-        max-height: 600px;
-        box-shadow: 0px 5px 8px 0px gray;
-        margin: auto;
-        display: block;
-    }
-    body {
-        background-image: url("NetsocLogo.jpg");
-        background-repeat: repeat;
-        background-position: top center;
-        background-size: 290px;
-    }
-    ul {
-        list-style-type: none;
-    }
-    h1, h2, #index {
-        text-align: center;
-    }
-    #container {
-        background: white;
-        max-width: 960px; 
-        margin: auto;
-        padding: 20px;
-        border-radius: 20px;
-        box-shadow: 0px 10px 15px 0px black;
-        opacity: 0.95;
-    }
-    </style>
+	<title>Welcome - Netsoc</title>
+	<meta charset="utf-8"/>
+	<link rel="icon" href="index_data/netsoc_logo_cropped.png"/>
+	<style>
+	.code {
+		background: #eff0f1;
+		padding: 4px 10px;
+		width: max-content;
+		font-family: Consolas;
+	}
+	img {
+		padding: 1px;
+		background: lightgray;
+		max-width: 600px;
+		max-height: 600px;
+		box-shadow: 0px 5px 8px 0px gray;
+		margin: auto;
+		display: block;
+	}
+	body {
+		background-image: url("index_data/netsoc_logo.jpg");
+		background-repeat: repeat;
+		background-position: top center;
+		background-size: 290px;
+	}
+	ul {
+		list-style-type: none;
+	}
+	h1, h2, #index {
+		text-align: center;
+	}
+	#container {
+		background: white;
+		max-width: 960px; 
+		margin: auto;
+		padding: 20px;
+		border-radius: 20px;
+		box-shadow: 0px 10px 15px 0px black;
+		opacity: 0.95;
+	}
+	</style>
 </head>
 <body>
-    <div id="container" >
-    <h1>
-    WELCOME TO THE NEW UCD NETSOC SERVER!
-    </h1>
-    
-    <ul id="index">
-        <li><a href="#access">Accessing the server</a></li>
-        <li><a href="#ssh">Simple guide to SSH</a></li>
-        <li><a href="#webpage">Setting up your webpage</a></li>
-        <li><a href="#upload">Uploading Files</a></li>
-    </ul>
-    
-    
-    <h2><a id="access">
-    Accessing the server
-    </a></h2>
-    <p>
-    You will have received your account info in an email from the society. If you have not gotten this email or you are not signed up to the society, you can email internet.society@ucd.ie or contact us through the <a href="https://www.facebook.com/ucdnetsoc/"> UCD Netsoc Facebook group</a>.
-    </p>
-    <p>
-    To use your account, you have to log in using <a href="#ssh">SSH</a> and on your first login, you will be prompted to enter a new password and to choose a "page name" for your personal page. After this page name has been chosen, you can start customising it an see how it looks at: netsoc.uce.ie/~pagename
-    </p>
-    
-    <h2><a id="ssh">
-    Simple guide to SSH
-    </a></h2>
-    <p>
+	<div id="container" >
+	<h1>
+	WELCOME TO THE NEW UCD NETSOC SERVER!
+	</h1>
 
-    To administer your account on the server, you need to log in using SSH (Secure shell)<br/>
-
-    An SSH client should be available by default on Mac and Linux. <br/>
-    It might already be available on Windows, but if not, we recommend using the <a href="https://www.putty.org/" rel="noopener noreferrer" target="_blank">Putty SSH client</a>.
-    </p>
-    
-    <p>
-    To connect to the server, open a terminal/console and type:
-    </p>
-    
-    <p class="code">
-    >> ssh username@netsoc.ucd.ie
-    </p>
-    
-    <p>
-    You should now be prompted for your password.
-    </p>
-    
-
-    <p class="code">
-    >> username@netsoc.ucd.ie's password:
-    </p>
-    
-    <p>
-    (Don't worry if it's not displaying anything as you type in your password. That's how it's supposed to work)
-    </p>
-    
-    <p>
-    If you're using Putty, just open the program and fill in the blanks
-    </p>
-    <img src="PuttyGuide.png" alt="Image showing how to connect to server using Putty"/>
+	<ul id="index">
+		<li><a href="#access">Accessing the server</a></li>	
+		<li><a href="#ssh">Simple guide to SSH</a></li>
+		<li><a href="#webpage">Setting up your webpage</a></li>
+		<li><a href="#upload">Uploading Files</a></li>
+	</ul>
 
 
-    <h2><a id="webpage">
-    Setting up your webpage
-    </a></h2>
+	<h2><a id="access">
+	Accessing the server
+	</a></h2>
+	<p>
+	You will have received your account info in an email from the society. 
+	If you have not gotten this email or you are not signed up to the society, you can email internet.society@ucd.ie or 
+	contact us through the <a href="https://www.facebook.com/ucdnetsoc/"> UCD Netsoc Facebook group</a>.
+	</p>
+	<p>
+	To use your account, you have to log in using <a href="#ssh">SSH</a> and on your first login, you will be prompted to enter a new password. 
+	You might have to log in again once you have set your new password.
+	</p>
 
-    <p>
-    To set up a basic webpage, simply add a file called index.html to the www/ folder in your home directory on the server. The contents of that index.html file will then be displayed with the address netsoc.ucd.ie/~pagename 
-    </p>
-    <p>
-    To create a nice website, you can use whichever framework you want! Or you could open up your favourite text editor and W3schools’s Into to <a href="https://www.w3schools.com/html/" rel="noopener noreferrer" target="_blank">HTML</a> and <a href="https://www.w3schools.com/css/" rel="noopener noreferrer" target="_blank">CSS</a>, and start coding away! 
-    </p>
-    <p>
-    If there are features you want on your website that we currently don’t support, please tell us and we’ll do our best to accommodate you. 
-    </p>
+	<h2><a id="ssh">
+	Simple guide to SSH
+	</a></h2>
+	<p>
+
+	To administer your account on the server, you need to log in using SSH (Secure shell)<br/>
+
+	An SSH client should be available by default on Mac and Linux. <br/>
+	It might already be available on Windows, but if not, we recommend using the <a href="https://www.putty.org/" rel="noopener noreferrer" target="_blank">Putty SSH client</a>.
+	</p>
+
+	<p>
+	To connect to the server, open a terminal/console and type:
+	</p>
+
+	<p class="code">
+	>> ssh username@netsoc.ucd.ie
+	</p>
+
+	<p>
+	You should now be prompted for your password.
+	</p>
 
 
+	<p class="code">
+	>> username@netsoc.ucd.ie's password:
+	</p>
 
-    <h2><a id="upload">
-    Uploading files
-    </a></h2>
-    <p>
-    Here are a few simple ways to get your files from your computer to your server. In these examples, I'll send a file called index.html to the folder /www/ in my home directory on the server.
+	<p>
+	(Don't worry if it's not displaying anything as you type in your password. That's how it's supposed to work)
+	</p>
 
-    </p>
-    <p>
-    Most SSH clients support SFTP(SSH File Transfer Protocol), which allows you to use the terminal/console to send files to the server. 
-    </p>
+	<p>
+	If you're using Putty, just open the program and fill in the blanks
+	</p>
+	<img src="index_data/putty_guide.png" alt="Image showing how to connect to server using Putty"/>
+
+
+	<h2><a id="webpage">
+	Setting up your webpage
+	</a></h2>
+
+	<p>
+	You will by default have a webpage setup at the URL: <b> netsoc.ucd.ie/~_"student_id"</b>. 
+	Use the following command to change the URL, for example to netsoc.ucd.ie/~cool_page. The ~ is mandatory.
+	</p>
+	<p class="code">
+	>> rename_my_page cool_page
+	</p>
+	<p>
+	To set up a basic webpage, simply add a file called index.html to the www/ folder in your home directory on the server. The contents of that index.html file will then be displayed with the address netsoc.ucd.ie/~pagename 
+	</p>
+	<p>
+	To create your website, you can use whichever framework you want! Or you could open up your favourite text editor and W3schools’s Intro to <a href="https://www.w3schools.com/html/" rel="noopener noreferrer" target="_blank">HTML</a> and <a href="https://www.w3schools.com/css/" rel="noopener noreferrer" target="_blank">CSS</a>, and start coding away! 
+	</p>
+	<p>
+	If there are features you want on your website that we currently don’t support, please tell us and we’ll do our best to accommodate you. 
+	</p>
 
 
 
-    <p>
-    If you just want to send a single file to the server, you can use:
-    </p>
-    <p class="code">
-    >> scp index.html username@netsoc.ucd.ie:www/
-    </p>
+	<h2><a id="upload">
+	Uploading files
+	</a></h2>
+	<p>
+	Here are a few simple ways to get your files from your computer to your server. In these examples, I'll send a file called index.html to the folder /www/ in my home directory on the server.
+
+	</p>
+	<p>
+	Most SSH clients support SFTP(SSH File Transfer Protocol), which allows you to use the terminal/console to send files to the server. 
+	</p>
 
 
-    <p>
-    If you want to transfer multiple files, you could use SFTP in the terminal, but we recommend using a client like <a href="https://filezilla-project.org/" rel="noopener noreferrer" target="_blank">FileZilla</a> in this case. <b>(Remember to avoid installing Bing search and Opera when downloading FileZilla)</b> <br/> 
-    Here's a simple introduction to FileZilla.
-    </p>
-    
-    
-    <p>
-    Connect to the netsoc.ucd.ie host with your username and password. Remember to set the port to 22 (to use SFTP).
-    </p>
-    <img src="FileZillaLogin.png" alt="Image showing how to connect to server using FileZilla"/>
-    <p> 
-    The window on the right displays your current folder on the server(top) and the contents of that folder(bottom). 
-    </p>
-    <img src="FileZillaServerFiles.png" alt="Image showing how files are shown in FileZilla"/>
-    <p>
-    You can navigate using the top window to find the location where you want to upload a file then either find your file in the left window or in a separate file explorer and drag it to somewhere in the right window. Your file should now be uploaded to the server in the location you dragged it to.
-    </p>
-    <img src="FileZillaDragNDrop.png" alt="Image showing how to drag files to send them with FileZilla"/>
 
-    </div>
+	<p>
+	If you just want to send a single file to the server, you can use:
+	</p>
+	<p class="code">
+	>> scp index.html username@netsoc.ucd.ie:www/
+	</p>
+
+
+	<p>
+		If you want to transfer multiple files, you could use SFTP in the terminal, but we recommend using a client like 
+		<a href="https://filezilla-project.org/" rel="noopener noreferrer" target="_blank">FileZilla</a> in this case. 
+		<b>(Remember to avoid installing Bing search and Opera when downloading FileZilla)</b> <br/> 
+		
+	</p>
+	
+	<h3> Here's a simple introduction to FileZilla. </h3>
+
+	<p>
+	Connect to the netsoc.ucd.ie host with your username and password. Remember to set the port to 22 (to use SFTP).
+	</p>
+	<img src="index_data/filezilla_login.png" alt="Image showing how to connect to server using FileZilla"/>
+	<p> 
+	The window on the right displays your current folder on the server(top) and the contents of that folder(bottom). 
+	</p>
+	<img src="index_data/filezilla_server_files.png" alt="Image showing how files are shown in FileZilla"/>
+	<p>
+	You can navigate using the top window to find the location where you want to upload a file then either find your file in the left window or in a separate file explorer and drag it to somewhere in the right window. Your file should now be uploaded to the server in the location you dragged it to.
+	</p>
+	<img src="index_data/filezilla_drag_drop.png" alt="Image showing how to drag files to send them with FileZilla"/>
+
+	</div>
 </body>
 </html>

@@ -1,0 +1,1 @@
+This page provides some resources for people who want to learn to use git.
