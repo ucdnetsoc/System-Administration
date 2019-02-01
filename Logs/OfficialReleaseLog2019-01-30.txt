@@ -1,0 +1,67 @@
+So here's what was done in terms of setup for the server launch 30. Jan 2019
+
+Outline:
+	General changes
+		Setup web server using NginX
+		Advisory page with all the most basic info the users will need
+		Motd has a cool logo and the server rules: in /etc/update-motd/
+		Added and tested PHP support
+		
+	
+	Scripts
+		Create all the users based on some input file
+		Script to remove a user
+		Script to rename a user page
+
+
+Create user script
+	/usr/local/sbin/add_netsoc_member username password gecos
+	verify user doesn't exist 
+	make website directory, (dummy site?), change ownership, create link
+	add to netsoc_members group
+	make password run out immediately
+	set up folder permissions
+	
+	
+Create all members based on a file
+	/usr/local/sbin/add_all_members infle outlfie
+	Create output file (format: studentID,name,email,password)
+	Open input file (format: studentID,name,email)
+	Exit if error
+	
+	For each input student
+		Ignore student if student exists
+		Generate passwd
+		Call create user script with studentID and passwd, name and email as gecos.
+		Write user info and passwd to output file (format: studentID,name,email,passwd)
+	
+						
+Delete user script
+	Verify user exists
+	Verify user is not a sudoer and is a NetSoc member
+	Remove user page
+	Remove user
+					
+Rename page script
+	Root script in sbin 
+		/usr/local/sbin/rename_user_page username new_page_name
+		Verify user is a NetSoc member
+		verify name is allowed and available
+		find folder through link in home
+		mv folder to new name including ~
+		unlink and relink symlink
+	
+	Root script to call other root script
+		/usr/local/sbin/rename_user_page new_page_name
+		this is to make sure a user cannot rename another user's page.
+		This script is set as available for sudo use to all users without needing a password (sudoers file) 
+		Calls rename_user_page with the calling user as the one who's page to rename
+		
+	Script to call root script in bin
+		/usr/local/bin/rename_my_page new_page_name
+		calls rename_user_page using sudo
+		this is to let people rename their page witout using sudo themselves.
+		
+	Added line to sudoer file to allow all users to call rename_page
+	
+	
