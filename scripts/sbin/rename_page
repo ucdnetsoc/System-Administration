@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# /usr/local/sbin/rename_page
+
+function usage {
+    echo "Renames the page of the current user"
+    echo "Usage: $0 new_page_name"
+    exit 1
+}
+
+if [[ $# -ne 1 ]] || [[ ( $# == "--help") ||  $# == "-h" ]] 
+then
+	usage
+	exit 0
+fi
+	
+if [[ $USER != "root" ]]; then 
+	echo "This script must be run as root!" 
+	exit 1
+fi 
+
+/usr/local/sbin/rename_user_page "$SUDO_USER" $1
+
+

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# /usr/local/sbin/remove_page
+
+function usage {
+    echo "Removes a webpage at the location /var/www/~'pagename'"
+    echo "Usage: $0 pagename"
+    exit 1
+}
+
+if [[ $# -ne 1 ]] || [[ ( $# == "--help") ||  $# == "-h" ]]
+then
+	usage
+	exit 0
+fi
+
+uname="$(stat --format '%U' "/var/www/html/~$1")"
+
+unlink "/home/$uname/www"
+rm -r "/var/www/html/~$1"

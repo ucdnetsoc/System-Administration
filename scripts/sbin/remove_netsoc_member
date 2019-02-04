@@ -1,0 +1,38 @@
+#!/bin/bash
+# /usr/local/sbin/remove_netsoc_member
+# Usage: UName
+
+if [[ $USER != "root" ]]; then
+        echo "This script must be run as root!"
+        exit 1
+fi
+
+function usage {
+    echo "Removes a netsoc member user"
+    echo "Usage: $0 username"
+}
+
+if [[ $# -ne 1 ]] || [[ ( $# == "--help") ||  $# == "-h" ]]
+then
+        usage
+        exit 0
+fi
+
+if [[ $(cut -d: -f1 /etc/passwd) != *"$1"* ]]; then
+        echo "User $1 does not exist!"
+        exit 1
+fi
+
+
+if [[ $(groups $1) != *"netsoc_members"* ]] || [[ $(groups $1) == *"sudo"* ]]
+then
+	echo "Cannot remove user: not normal netsoc member"
+	exit 1
+fi
+
+if [[ -L /home/$1/www ]]
+then
+	rm -r $(readlink -f /home/$1/www)
+fi
+
+deluser $1 --remove-home

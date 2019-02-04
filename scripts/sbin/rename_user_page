@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# /usr/local/sbin/rename_user_page
+
+function usage {
+    echo "Renames the page of a user specified by name"
+    echo "Usage: $0 user_name new_page_name"
+    exit 1
+}
+
+if [[ $# -ne 2 ]] || [[ ( $# == "--help") ||  $# == "-h" ]] 
+then
+	usage
+	exit 0
+fi
+	
+if [[ $USER != "root" ]]; then 
+	echo "This script must be run as root!" 
+	exit 1
+fi 
+
+if [[ -d "/var/www/html/~$2" ]]; then
+  echo "Page name is already in use"
+  exit 1
+fi
+
+if [[ ${#2} -le 2 ]] || [[ ${#2} -ge 21 ]]; then
+  echo "Page name must be between 3 and 20 characters"
+  exit 1
+fi
+
+if ! [[ "$2" =~ ^[A-Za-z0-9_]*$ ]]; then
+  echo "Page name can only consist of letters, numbers and underscores"
+  exit 1
+fi
+
+if [[ $(groups $1) != *"netsoc_members"* ]]
+then
+	echo "User does not have a page"
+	exit 1
+fi
+
+old_page_name=$(readlink -f /home/$1/www)
+
+unlink "/home/$1/www"
+mv $old_page_name "/var/www/html/~$2"
+ln -s "/var/www/html/~$2"  "/home/$1/www"

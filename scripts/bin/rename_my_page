@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# /usr/local/bin/rename_my_page
+
+function usage {
+    echo "Renames your webpage to /~new_page_name"
+    echo "Usage:"
+    echo "$(basename "$0") new_page_name"
+    exit 1
+}
+
+if [[ $# -ne 1 ]] || [[ ( $# == "--help") ||  $# == "-h" ]] 
+then
+	usage
+	exit 0
+fi
+	
+
+if [[ $(groups) != *"netsoc_members"* ]]
+then
+	echo "You are not in the netsoc members group"
+	exit 1
+fi
+
+sudo /usr/local/sbin/rename_page $1
+

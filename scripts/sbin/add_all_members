@@ -1,0 +1,53 @@
+#!/bin/bash
+# /usr/local/sbin/add_all_members
+# Usage: UName passwd gecos
+
+
+function usage {
+    echo "Adds all the new netsoc members from a file"
+    echo "Usage:"
+    echo "$0 in_file out_file"
+    echo "File format: studentID,FullName,email"
+}
+
+if [[ $# -ne 2 ]] || [[ ( $# == "--help") ||  $# == "-h" ]]
+then
+        usage
+        exit 0
+fi
+
+if [[ $USER != "root" ]]; then
+        echo "This script must be run as root!"
+        exit 1
+fi
+
+if ! [[ -r $1 ]]; then
+	echo "The input file is not readable"
+	exit 1
+fi
+
+if ! [[ -e $2 ]]; then
+	touch $2
+fi
+
+if ! [[ -w $2 ]]; then
+	echo "Cannot write to the output file"
+	exit 1
+fi
+
+echo "ID Number,Member,Email Address,Password" > $2
+
+
+while IFS=, read -r id name email
+do
+	email=$(echo "$email" | tr -dc [:print:]) 
+	if [[ -n $id ]] && [[ $id =~ ^[0-9]+$ ]] && ! getent passwd "_$id" > /dev/null 2>&1
+	then
+		password="$(openssl rand -base64 32 | tr -d /=+ | cut -c -10 )"
+		echo "${id}|${name}|${email}|${password}" >> $2
+		/usr/local/sbin/add_netsoc_member "_$id" $password "$name,$email" &>/dev/null
+	fi
+done < $1
+
+
+

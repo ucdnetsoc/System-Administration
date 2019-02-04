@@ -1,0 +1,39 @@
+#!/bin/bash
+# /usr/local/sbin/add_netsoc_member
+# Usage: UName passwd gecos
+
+
+function usage {
+    echo "Adds a netsoc member user"
+    echo "Usage: $0 username pasword gecos"
+}
+
+if [[ $# -ne 3 ]] || [[ ( $# == "--help") ||  $# == "-h" ]]
+then
+        usage
+        exit 0
+fi
+
+if [[ $USER != "root" ]]; then
+        echo "This script must be run as root!"
+        exit 1
+fi
+
+if [[ $(cut -d: -f1 /etc/passwd) == *"$1"* ]]; then
+        echo "User $1 allready exists!"
+        exit 1
+fi
+
+
+
+printf "$2\n$2\n" | adduser --gecos "$3" "$1"
+passwd -e $1
+chmod 750 "/home/$1"
+
+mkdir "/var/www/html/~$1"
+chmod 711 "/var/www/html/~$1"
+
+ln -s "/var/www/html/~$1"  "/home/$1/www"
+chown "$1:netsoc_members" "/home/$1/www"
+
+adduser $1 netsoc_members
